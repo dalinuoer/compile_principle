@@ -13,11 +13,12 @@
 
 delim		[ \t \n]
 ws			{delim}+
+other		[^{ws}]
 
 %%
 
 <INITIAL>{ws} 			{return (BLANK);}
-<INITIAL>.				{return (OTHER);}
+<INITIAL>{other}		{return (OTHER);}
 
 %%
 
