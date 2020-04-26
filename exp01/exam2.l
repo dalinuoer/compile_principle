@@ -2,8 +2,6 @@
 /* Author: Qin Hao */
 /* Date: 2020/4/26 */
 
-/* ╟ялжяА╣дв╒ймх╔╣Т */
-
 %{
 
 #include <stdio.h>
