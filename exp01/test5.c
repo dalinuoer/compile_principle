@@ -1,0 +1,3 @@
+floata 
+float 
+asfloat
