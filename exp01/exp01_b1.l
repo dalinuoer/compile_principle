@@ -32,12 +32,12 @@ digit		[0-9]
 id			{letter}({letter}|{digit})*
 number		{digit}+(\.{digit}+)?(E[+-]?{digit}+)?
 
-/* ×´Ì¬£¨»òÌõ¼ş£©¶¨Òå¿ÉÒÔ¶¨ÒåÔÚÕâÀï
- * INITIALÊÇÒ»¸öÄ¬ÈÏµÄ×´Ì¬£¬²»ĞèÒª¶¨Òå
+/* çŠ¶æ€ï¼ˆæˆ–æ¡ä»¶ï¼‰å®šä¹‰å¯ä»¥å®šä¹‰åœ¨è¿™é‡Œ
+ * INITIALæ˜¯ä¸€ä¸ªé»˜è®¤çš„çŠ¶æ€ï¼Œä¸éœ€è¦å®šä¹‰
  */
-/*¶àĞĞ×¢ÊÍ*/
+/*å¤šè¡Œæ³¨é‡Š*/
 %s COMMENT
-/*µ¥ĞĞ×¢ÊÍ*/
+/*å•è¡Œæ³¨é‡Š*/
 %s SINGLELINECOMMENT
 
 %%
@@ -49,7 +49,7 @@ number		{digit}+(\.{digit}+)?(E[+-]?{digit}+)?
 <INITIAL>"//"						{BEGIN SINGLELINECOMMENT;}
 <SINGLELINECOMMENT>\n				{BEGIN INITIAL;}
 <SINGLELINECOMMENT>.				{;}
- /* µ¥ĞĞ×¢ÊÍµÄÇé¿öºÍ¶àĞĞ×¢ÊÍ²»Í¬£¬// ºóÃæ²»ÄÜ³öÏÖ \n */
+ /* å•è¡Œæ³¨é‡Šçš„æƒ…å†µå’Œå¤šè¡Œæ³¨é‡Šä¸åŒï¼Œ// åé¢ä¸èƒ½å‡ºç° \n */
 
 <INITIAL>"{"						{return (RELOP);}
 <INITIAL>"}"						{return (RELOP);}
@@ -57,7 +57,7 @@ number		{digit}+(\.{digit}+)?(E[+-]?{digit}+)?
 <INITIAL>"("						{return (RELOP);}
 <INITIAL>")"						{return (RELOP);}
 
- /* ECHOÊÇÒ»¸öºê£¬Ïàµ±ÓÚ fprintf(yyout, "%s", yytext)*/
+ /* ECHOæ˜¯ä¸€ä¸ªå®ï¼Œç›¸å½“äº fprintf(yyout, "%s", yytext)*/
 
 <INITIAL>{ws}	          {;}
 <INITIAL>while			  {return (WHILE);}
