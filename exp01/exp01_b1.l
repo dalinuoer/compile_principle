@@ -23,9 +23,7 @@
 #define NEWLINE     23
 #define ERRORCHAR   24
 
-
 %}
-
 
 delim		[ \t \n]
 ws			{delim}+
@@ -51,6 +49,7 @@ number		{digit}+(\.{digit}+)?(E[+-]?{digit}+)?
 <INITIAL>"//"						{BEGIN SINGLELINECOMMENT;}
 <SINGLELINECOMMENT>\n				{BEGIN INITIAL;}
 <SINGLELINECOMMENT>.				{;}
+ /* 单行注释的情况和多行注释不同，// 后面不能出现 \n */
 
 <INITIAL>"{"						{return (RELOP);}
 <INITIAL>"}"						{return (RELOP);}
@@ -84,7 +83,6 @@ number		{digit}+(\.{digit}+)?(E[+-]?{digit}+)?
 
 <INITIAL>.				  {return ERRORCHAR;}
 
-
 %%
 
 int yywrap (){
@@ -106,7 +104,6 @@ void writeout(int c){
   }
   return;
 }
-
 
 int main (int argc, char ** argv){
 	int c,j=0;
