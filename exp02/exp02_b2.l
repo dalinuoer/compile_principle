@@ -8,7 +8,7 @@
 
 #define PROGRAM         1
 #define SEMICOLON       2
-#define BEGINS          3
+#define BEGIN           3
 #define END             4
 #define DOT             5
 #define VAR             6
@@ -118,15 +118,15 @@ int yywrap() {
 void writeout(int c) {
   switch(c) {
 	case PROGRAM: fprintf(yyout, "(PROGRAM, \"%s\") ", yytext); break;
-	case BEGINS: fprintf(yyout, "(BEGIN, \"%s\") ", yytext); break;
+	case BEGIN: fprintf(yyout, "(BEGIN, \"%s\") ", yytext); break;
     case END: fprintf(yyout, "(END, \"%s\") ", yytext); break;
 	case VAR: fprintf(yyout, "(VAR, \"%s\") ", yytext);break;
 
 	case INTEGER: fprintf(yyout, "(INTEGER, \"%s\") ", yytext); break;
     case REAL: fprintf(yyout, "(REAL, \"%s\") ", yytext); break;
 
-	case NUMINTEGER: fprintf(yyout, "(Integer, %d) ", yytext); break;
-    case NUMREAL: fprintf(yyout, "(Real, %f) ", yytext); break;
+	case NUMINTEGER: fprintf(yyout, "(Integer, %d) ", atoi(yytext)); break;
+    case NUMREAL: fprintf(yyout, "(Real, %f) ", atoi(yytext)); break;
     case ID: fprintf(yyout, "(ID, \"%s\") ", yytext); break;
 
 	case IF: fprintf(yyout, "(IF, \"%s\") ", yytext); break;
