@@ -69,7 +69,7 @@ real	    {digit}*\.{integer}
 <SINGLELINECOMMENT>.	  {;}
 
 <INITIAL>PROGRAM          {return (PROGRAM);}
-<INITIAL>BEGIN            {return (BEGINS);}
+<INITIAL>BEGIN            {return (BEGIN);}
 <INITIAL>END              {return (END);}
 <INITIAL>VAR              {return (VAR);}
 
