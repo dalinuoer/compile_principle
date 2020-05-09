@@ -477,9 +477,12 @@ int yy_flex_debug = 0;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-#line 1 "exam2.l"
-/* ∞—Ã÷—·µƒ◊¢ Õ»•µÙ */
-#line 4 "exam2.l"
+#line 1 "exp01_b1.l"
+/* Exp01_b1 */
+/* Author: Qin Hao */
+/* Date: 2020/4/26 */
+/* Update: 2020/5/9 */
+#line 7 "exp01_b1.l"
 
 #include <stdio.h>
 #define LT			1
@@ -497,19 +500,26 @@ char *yytext;
 #define NUMBER      21
 #define RELOP       22
 
-#define NEWLINE     23
-#define ERRORCHAR   24
+#define ARIOP		23
+#define SEMI		24
+#define LBBRAK 		25
+#define RBBRAK		26
+#define LSBRAK  	27
+#define RSBRAK  	28
+#define ASSIGN		29
 
+#define NEWLINE     30
+#define ERRORCHAR   31
 
-#line 504 "lex.yy.c"
-/* ◊¥Ã¨£®ªÚÃıº˛£©∂®“Âø…“‘∂®“Â‘⁄’‚¿Ô
- * INITIAL «“ª∏ˆƒ¨»œµƒ◊¥Ã¨£¨≤ª–Ë“™∂®“Â
+#line 514 "lex.yy.c"
+/* Áä∂ÊÄÅÔºàÊàñÊù°‰ª∂ÔºâÂÆö‰πâÂèØ‰ª•ÂÆö‰πâÂú®ËøôÈáå
+ * INITIALÊòØ‰∏Ä‰∏™ÈªòËÆ§ÁöÑÁä∂ÊÄÅÔºå‰∏çÈúÄË¶ÅÂÆö‰πâ
  */
-/*∂‡––◊¢ Õ*/
+/*Â§öË°åÊ≥®Èáä*/
 
-/*µ•––◊¢ Õ*/
+/*ÂçïË°åÊ≥®Èáä*/
 
-#line 512 "lex.yy.c"
+#line 522 "lex.yy.c"
 
 #define INITIAL 0
 #define COMMENT 1
@@ -728,10 +738,10 @@ YY_DECL
 		}
 
 	{
-#line 43 "exam2.l"
+#line 52 "exp01_b1.l"
 
 
-#line 734 "lex.yy.c"
+#line 744 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -790,164 +800,165 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 45 "exam2.l"
+#line 54 "exp01_b1.l"
 {BEGIN COMMENT;}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 46 "exam2.l"
+#line 55 "exp01_b1.l"
 {BEGIN INITIAL;}
 	YY_BREAK
 case 3:
 /* rule 3 can match eol */
 YY_RULE_SETUP
-#line 47 "exam2.l"
+#line 56 "exp01_b1.l"
 {;}
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 49 "exam2.l"
+#line 58 "exp01_b1.l"
 {BEGIN SINGLELINECOMMENT;}
 	YY_BREAK
 case 5:
 /* rule 5 can match eol */
 YY_RULE_SETUP
-#line 50 "exam2.l"
+#line 59 "exp01_b1.l"
 {BEGIN INITIAL;}
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 51 "exam2.l"
+#line 60 "exp01_b1.l"
 {;}
 	YY_BREAK
+/* ÂçïË°åÊ≥®ÈáäÁöÑÊÉÖÂÜµÂíåÂ§öË°åÊ≥®Èáä‰∏çÂêåÔºå// ÂêéÈù¢‰∏çËÉΩÂá∫Áé∞ \n */
 case 7:
 YY_RULE_SETUP
-#line 53 "exam2.l"
-{return (RELOP);}
+#line 63 "exp01_b1.l"
+{return (LBBRAK);}
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 54 "exam2.l"
-{return (RELOP);}
+#line 64 "exp01_b1.l"
+{return (RBBRAK);}
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 56 "exam2.l"
-{return (RELOP);}
+#line 66 "exp01_b1.l"
+{return (LSBRAK);}
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 57 "exam2.l"
-{return (RELOP);}
+#line 67 "exp01_b1.l"
+{return (RSBRAK);}
 	YY_BREAK
-/* ECHO «“ª∏ˆ∫Í£¨œ‡µ±”⁄ fprintf(yyout, "%s", yytext)*/
+/* ECHOÊòØ‰∏Ä‰∏™ÂÆèÔºåÁõ∏ÂΩì‰∫é fprintf(yyout, "%s", yytext)*/
 case 11:
 /* rule 11 can match eol */
 YY_RULE_SETUP
-#line 61 "exam2.l"
+#line 71 "exp01_b1.l"
 {;}
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 62 "exam2.l"
+#line 72 "exp01_b1.l"
 {return (WHILE);}
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 63 "exam2.l"
+#line 73 "exp01_b1.l"
 {return (DO);}
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 64 "exam2.l"
+#line 74 "exp01_b1.l"
 {return (IF);}
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 65 "exam2.l"
+#line 75 "exp01_b1.l"
 {return (ELSE);}
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 66 "exam2.l"
+#line 76 "exp01_b1.l"
 {return (ID);}
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 67 "exam2.l"
+#line 77 "exp01_b1.l"
 {return (NUMBER);}
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 68 "exam2.l"
+#line 78 "exp01_b1.l"
 {return (RELOP);}
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 69 "exam2.l"
+#line 79 "exp01_b1.l"
 {return (RELOP);}
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 70 "exam2.l"
+#line 80 "exp01_b1.l"
 {return (RELOP);}
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 71 "exam2.l"
+#line 81 "exp01_b1.l"
 {return (RELOP);}
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 72 "exam2.l"
+#line 82 "exp01_b1.l"
 {return (RELOP);}
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 73 "exam2.l"
+#line 83 "exp01_b1.l"
 {return (RELOP);}
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 75 "exam2.l"
-{return (RELOP);}
+#line 85 "exp01_b1.l"
+{return (ASSIGN);}
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 76 "exam2.l"
-{return (RELOP);}
+#line 86 "exp01_b1.l"
+{return (SEMI);}
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 78 "exam2.l"
-{return (RELOP);}
+#line 88 "exp01_b1.l"
+{return (ARIOP);}
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 79 "exam2.l"
-{return (RELOP);}
+#line 89 "exp01_b1.l"
+{return (ARIOP);}
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 80 "exam2.l"
-{return (RELOP);}
+#line 90 "exp01_b1.l"
+{return (ARIOP);}
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 81 "exam2.l"
-{return (RELOP);}
+#line 91 "exp01_b1.l"
+{return (ARIOP);}
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
-#line 83 "exam2.l"
+#line 93 "exp01_b1.l"
 {return ERRORCHAR;}
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
-#line 86 "exam2.l"
+#line 95 "exp01_b1.l"
 ECHO;
 	YY_BREAK
-#line 950 "lex.yy.c"
+#line 961 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 case YY_STATE_EOF(COMMENT):
 case YY_STATE_EOF(SINGLELINECOMMENT):
@@ -1954,7 +1965,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 86 "exam2.l"
+#line 95 "exp01_b1.l"
 
 
 int yywrap (){
@@ -1962,7 +1973,7 @@ int yywrap (){
 }
 
 void writeout(int c){
-  switch(c){
+  switch(c) {
   	case ERRORCHAR: fprintf(yyout, "(ERRORCHAR, \"%s\") ", yytext);break;
   	case RELOP: fprintf(yyout, "(RELOP, \"%s\") ", yytext);break;
     case WHILE: fprintf(yyout, "(WHILE, \"%s\") ", yytext);break;
@@ -1971,12 +1982,18 @@ void writeout(int c){
 	case ELSE: fprintf(yyout, "(ELSE, \"%s\") ", yytext);break;
     case NUMBER: fprintf(yyout, "(NUM, \"%s\") ", yytext);break;
     case ID: fprintf(yyout, "(ID, \"%s\") ", yytext);break;
+	case ARIOP: fprintf(yyout, "(ARIOP, \"%s\") ", yytext);break;
+	case SEMI: fprintf(yyout, "(SEMI, \"%s\") ", yytext);break;
+	case LBBRAK: fprintf(yyout, "(LBBRAK, \"%s\") ", yytext);break;
+	case RBBRAK: fprintf(yyout, "(RBBRAK, \"%s\") ", yytext);break;
+	case LSBRAK: fprintf(yyout, "(LSBRAK, \"%s\") ", yytext);break;
+	case RSBRAK: fprintf(yyout, "(RSBRAK, \"%s\") ", yytext);break;
+	case ASSIGN: fprintf(yyout, "(ASSIGN, \"%s\") ", yytext);break;
     case NEWLINE: fprintf(yyout, "\n");break;
     default:break;
   }
   return;
 }
-
 
 int main (int argc, char ** argv){
 	int c,j=0;

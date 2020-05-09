@@ -8,7 +8,7 @@
 
 #define PROGRAM         1
 #define SEMICOLON       2
-#define BEGIN           3
+#define BEGINS          3
 #define END             4
 #define DOT             5
 #define VAR             6
@@ -69,7 +69,7 @@ real	    {digit}*\.{integer}
 <SINGLELINECOMMENT>.	  {;}
 
 <INITIAL>PROGRAM          {return (PROGRAM);}
-<INITIAL>BEGIN            {return (BEGIN);}
+<INITIAL>BEGIN            {return (BEGINS);}
 <INITIAL>END              {return (END);}
 <INITIAL>VAR              {return (VAR);}
 
@@ -118,7 +118,7 @@ int yywrap() {
 void writeout(int c) {
   switch(c) {
 	case PROGRAM: fprintf(yyout, "(PROGRAM, \"%s\") ", yytext); break;
-	case BEGIN: fprintf(yyout, "(BEGIN, \"%s\") ", yytext); break;
+	case BEGINS: fprintf(yyout, "(BEGIN, \"%s\") ", yytext); break;
     case END: fprintf(yyout, "(END, \"%s\") ", yytext); break;
 	case VAR: fprintf(yyout, "(VAR, \"%s\") ", yytext);break;
 

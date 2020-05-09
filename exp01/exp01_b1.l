@@ -1,6 +1,7 @@
 /* Exp01_b1 */
 /* Author: Qin Hao */
 /* Date: 2020/4/26 */
+/* Update: 2020/5/9 */
 
 %{
 
@@ -20,8 +21,16 @@
 #define NUMBER      21
 #define RELOP       22
 
-#define NEWLINE     23
-#define ERRORCHAR   24
+#define ARIOP		23
+#define SEMI		24
+#define LBBRAK 		25
+#define RBBRAK		26
+#define LSBRAK  	27
+#define RSBRAK  	28
+#define ASSIGN		29
+
+#define NEWLINE     30
+#define ERRORCHAR   31
 
 %}
 
@@ -51,11 +60,11 @@ number		{digit}+(\.{digit}+)?(E[+-]?{digit}+)?
 <SINGLELINECOMMENT>.				{;}
  /* 单行注释的情况和多行注释不同，// 后面不能出现 \n */
 
-<INITIAL>"{"						{return (RELOP);}
-<INITIAL>"}"						{return (RELOP);}
+<INITIAL>"{"						{return (LBBRAK);}
+<INITIAL>"}"						{return (RBBRAK);}
 
-<INITIAL>"("						{return (RELOP);}
-<INITIAL>")"						{return (RELOP);}
+<INITIAL>"("						{return (LSBRAK);}
+<INITIAL>")"						{return (RSBRAK);}
 
  /* ECHO是一个宏，相当于 fprintf(yyout, "%s", yytext)*/
 
@@ -73,13 +82,13 @@ number		{digit}+(\.{digit}+)?(E[+-]?{digit}+)?
 <INITIAL>">"	          {return (RELOP);}
 <INITIAL>">="	          {return (RELOP);}
 
-<INITIAL>"="	          {return (RELOP);}
-<INITIAL>";"			  {return (RELOP);}
+<INITIAL>"="	          {return (ASSIGN);}
+<INITIAL>";"			  {return (SEMI);}
 
-<INITIAL>"+"			  {return (RELOP);}
-<INITIAL>"-"			  {return (RELOP);}
-<INITIAL>"*"			  {return (RELOP);}
-<INITIAL>"/"			  {return (RELOP);}
+<INITIAL>"+"			  {return (ARIOP);}
+<INITIAL>"-"			  {return (ARIOP);}
+<INITIAL>"*"			  {return (ARIOP);}
+<INITIAL>"/"			  {return (ARIOP);}
 
 <INITIAL>.				  {return ERRORCHAR;}
 
@@ -90,7 +99,7 @@ int yywrap (){
 }
 
 void writeout(int c){
-  switch(c){
+  switch(c) {
   	case ERRORCHAR: fprintf(yyout, "(ERRORCHAR, \"%s\") ", yytext);break;
   	case RELOP: fprintf(yyout, "(RELOP, \"%s\") ", yytext);break;
     case WHILE: fprintf(yyout, "(WHILE, \"%s\") ", yytext);break;
@@ -99,6 +108,13 @@ void writeout(int c){
 	case ELSE: fprintf(yyout, "(ELSE, \"%s\") ", yytext);break;
     case NUMBER: fprintf(yyout, "(NUM, \"%s\") ", yytext);break;
     case ID: fprintf(yyout, "(ID, \"%s\") ", yytext);break;
+	case ARIOP: fprintf(yyout, "(ARIOP, \"%s\") ", yytext);break;
+	case SEMI: fprintf(yyout, "(SEMI, \"%s\") ", yytext);break;
+	case LBBRAK: fprintf(yyout, "(LBBRAK, \"%s\") ", yytext);break;
+	case RBBRAK: fprintf(yyout, "(RBBRAK, \"%s\") ", yytext);break;
+	case LSBRAK: fprintf(yyout, "(LSBRAK, \"%s\") ", yytext);break;
+	case RSBRAK: fprintf(yyout, "(RSBRAK, \"%s\") ", yytext);break;
+	case ASSIGN: fprintf(yyout, "(ASSIGN, \"%s\") ", yytext);break;
     case NEWLINE: fprintf(yyout, "\n");break;
     default:break;
   }
