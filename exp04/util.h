@@ -1,5 +1,6 @@
 #include <assert.h>
 
+/* 真·曲线救国 */
 typedef char *string; 
 typedef char bool;
 
