@@ -86,7 +86,7 @@ stmt: ID ASSIGN arith_exp
  /* <算术表达式> --> <项> | <算术表达式> + <项> | <算术表达式> - <项> */
 arith_exp: term 
     | arith_exp ADD term
-    | arith_exp MULTIPLY term
+    | arith_exp SUBTRACT term
     ;
 
  /* <项> --> <因式> | <项> * <因式> | <项> / <因式> */

@@ -1,4 +1,3 @@
-# c/Users/Qin/Documents/GitHub/compile_principle/exp04
 b5.exe: parsetest.o parser.tab.o lex.yy.o errormsg.o util.o 
 	gcc -o b5.exe parsetest.o parser.tab.o lex.yy.o errormsg.o util.o
 
